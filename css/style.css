@@ -75,6 +75,9 @@ label {
 	display: block;
 	margin-bottom: .5em;
 }
+.disabled{
+	color: lightblue !important;
+}
 
 input,
 select {
