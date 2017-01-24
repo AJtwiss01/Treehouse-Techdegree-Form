@@ -194,10 +194,10 @@ input[type="text"]:valid, input[type="email"]:valid{
 input[type="text"]:valid ~ .input-validation::before, input[type="email"]:valid ~ .input-validation::before{
     content: "\2713";
     color: green;
+
 }
 
 /* Unmatched */
 input[type="text"]:invalid, input[type="email"]:invalid {
     color: red;
-    border-color: red;
-}
+    }
