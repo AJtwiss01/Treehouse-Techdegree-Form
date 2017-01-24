@@ -182,3 +182,22 @@ button:hover {
 		width: 49%;
 	}
 }
+
+.error{
+	color: red;
+}
+/* When the pattern is matched */
+input[type="text"]:valid, input[type="email"]:valid{
+    color: green;
+}
+
+input[type="text"]:valid ~ .input-validation::before, input[type="email"]:valid ~ .input-validation::before{
+    content: "\2713";
+    color: green;
+}
+
+/* Unmatched */
+input[type="text"]:invalid, input[type="email"]:invalid {
+    color: red;
+    border-color: red;
+}

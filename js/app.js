@@ -37,30 +37,16 @@
    //this does the input select logic
    function selected() {
        $('.activities input:checkbox').change('click', function() {
+
            $target = $(this).data("time");
-           // if ($target === "all") {
-           //     if (this.checked) {
-           //         $(this).removeClass('all');
-           //         $(".all").prop('checked', false);
-           //         $(".all").prop('disabled', true);
-           //         $(".all").parent().addClass('disabled');
-           //     } else if (!this.checked) {
-           //         $(this).addClass('all')
-           //         $(this).removeClass('disabled');
-           //         $(".all").prop('disabled', false);
-           //         $(".all").parent().removeClass('disabled');
-           //     }
-           // } else 
+
            if ($target === "nine") {
                if (this.checked) {
                    $(this).removeClass('nine');
                    $(this).prop('disabled', false);
                    $(".nine").prop('disabled', true);
                    $(".nine").parent().addClass('disabled');
-                   // if ($('input[data-time="one"]:checked').length > 0 & $('input[data-time="nine"]:checked').length > 0 === true) {
-                   //     $('.first').parent().addClass('disabled');
-                   //     $('.first').prop('disabled', true);
-                   // }
+                 
                } else if (!this.checked) {
                    $(this).addClass('nine');
                    $(".nine").prop('disabled', false);
@@ -75,11 +61,7 @@
                    $(this).prop('disabled', false);
                    $(".one").prop('disabled', true);
                    $(".one").parent().addClass('disabled');
-                   // if ($('input[data-time="one"]:checked').length > 0 & $('input[data-time="nine"]:checked').length > 0 === true) {
-                   //     $('.first').parent().addClass('disabled');
-                   //     $('.first').prop('disabled', true);
-
-                   // }
+              
                } else if (!this.checked) {
                    $(this).addClass('one');
                    $(".one").prop('disabled', false);
@@ -154,4 +136,18 @@
    selected();
    ccCard()
 
+   //form validation when submtited
+   function OptionCheck() {
+       $('.tree-form').submit(function(event) {
+           /* Act on the event */
+           event.preventDefault();
+           if ($('input[type=checkbox]:checked').length > 0 === false) {
+               $('.ActivityError').removeClass('is-hidden')
+           } else if ($('input[type=checkbox]:checked').length > 0 === true) {
+               $('.ActivityError').addClass('is-hidden')
+           }
+       });
+
+   };
+   OptionCheck();
    $("#name").focus();

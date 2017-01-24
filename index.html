@@ -81,11 +81,12 @@
                 <label>
                     <input type="checkbox" name="npm" data-time="one" class="all one"> npm Workshop — Wednesday 1pm-4pm, $100</label>
                 <p>Total: <span class="total"><span></p>
+
             </fieldset>
             <fieldset>
                 <legend>Payment Info</legend>
                 <label for="payment">I'm going to pay with:</label>
-                <select id="payment" name="user_payment">
+                <select id="payment" name="user_payment" required>
                     <option class="select_method" value="select_method">Select Payment Method</option>
                     <option class="credit_card" value="credit card" selected="selected">Credit Card</option>
                     <option class="paypal" value="paypal">PayPal</option>
@@ -94,15 +95,15 @@
                 <div id="credit-card" class="credit-card">
                     <div class="col-6 col">
                         <label for="cc-num">Card Number:</label>
-                        <input id="cc-num" name="user_cc-num" type="text">
+                        <input id="cc-num" name="user_cc-num" type="text" pattern="[0-9]{13,16}" required>
                     </div>
                     <div class="col-3 col">
                         <label for="zip">Zip Code:</label>
-                        <input id="zip" name="user_zip" type="text">
+                        <input id="zip" name="user_zip" type="text" patern="(\d{5}([\-]\d{4})?)" required>
                     </div>
                     <div class="col-3 col">
                         <label for="cvv">CVV:</label>
-                        <input id="cvv" name="user_cvv" type="text">
+                        <input id="cvv" name="user_cvv" type="text" pattern="([0-9]{3})" required>
                     </div>
                     <label for="exp-month">Expiration Date:</label>
                     <select id="exp-month" name="user_exp-month">
@@ -133,6 +134,11 @@
                 </div>
                 <div class="bitCoin is-hidden">
                     <p>If you selected the Bitcoin option we'll take you to the Coinbase site to set up your billing information. Due to the nature of exchanging Bitcoin, all Bitcoin transactions will be final.</p>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="error">
+                    <p class='ActivityError is-hidden'> Please Select a Event</p>
                 </div>
             </fieldset>
             <button type="submit">Register</button>
